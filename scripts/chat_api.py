@@ -13,7 +13,7 @@ while True:
     conversation_history.append({"role": "user", "content": query})
     response = client.chat.completions.create(
         model="minimind-local:latest",
-        messages=conversation_history[-(history_messages_num or 1):],
+        messages=conversation_history[-(history_messages_num + 1):],
         stream=stream,
         temperature=0.8,
         max_tokens=2048,
